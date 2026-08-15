@@ -1,0 +1,740 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌱 FERME DUMARU</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Poppins',sans-serif;
+        scroll-behavior:smooth;
+        }
+
+        body{
+        background:#f8faf8;
+        color:#333;
+        }
+
+        header{
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        background:#ffffff;
+        box-shadow:0 2px 10px rgba(0,0,0,.1);
+        z-index:999;
+        }
+
+        .navbar{
+        max-width:1200px;
+        margin:auto;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:18px;
+        }
+
+        .logo{
+        font-size:28px;
+        font-weight:700;
+        color:#1b5e20;
+        }
+
+        .nav-links{
+        display:flex;
+        gap:25px;
+        list-style:none;
+        }
+
+        .nav-links a{
+        text-decoration:none;
+        color:#333;
+        font-weight:500;
+        transition:.3s;
+        }
+
+        .nav-links a:hover{
+        color:#2e7d32;
+        }
+
+        .hero{
+        height:100vh;
+        background:
+        linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+        url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1600&q=80');
+        background-size:cover;
+        background-position:center;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        padding:20px;
+        }
+
+        .hero-content{
+        max-width:850px;
+        color:#fff;
+        }
+
+        .hero h1{
+        font-size:60px;
+        margin-bottom:20px;
+        }
+
+        .hero p{
+        font-size:22px;
+        margin-bottom:30px;
+        }
+
+        .btn{
+        display:inline-block;
+        padding:15px 30px;
+        background:#43a047;
+        color:white;
+        text-decoration:none;
+        border-radius:30px;
+        font-weight:600;
+        transition:.3s;
+        }
+
+        .btn:hover{
+        background:#2e7d32;
+        transform:translateY(-3px);
+        }
+
+        section{
+        padding:90px 8%;
+        }
+
+        .section-title{
+        text-align:center;
+        margin-bottom:50px;
+        }
+
+        .section-title h2{
+        font-size:40px;
+        color:#1b5e20;
+        }
+
+        .about{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:40px;
+        align-items:center;
+        }
+
+        .about img{
+        width:100%;
+        border-radius:15px;
+        }
+
+        .stats{
+        background:#1b5e20;
+        color:white;
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+        gap:20px;
+        text-align:center;
+        }
+
+        .stat{
+        padding:40px;
+        }
+
+        .stat h3{
+        font-size:45px;
+        }
+
+        .cards{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+        gap:25px;
+        }
+
+        .card{
+        background:white;
+        border-radius:15px;
+        overflow:hidden;
+        box-shadow:0 5px 20px rgba(0,0,0,.08);
+        transition:.4s;
+        }
+
+        .card:hover{
+        transform:translateY(-8px);
+        }
+
+        .card img{
+        width:100%;
+        height:250px;
+        object-fit:cover;
+        }
+
+        .card-content{
+        padding:20px;
+        }
+
+        .gallery{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+        gap:15px;
+        }
+
+        .gallery img{
+        width:100%;
+        height:260px;
+        object-fit:cover;
+        border-radius:12px;
+        transition:.3s;
+        }
+
+        .gallery img:hover{
+        transform:scale(1.03);
+        }
+
+        .news{
+        background:#eef7ef;
+        }
+
+        .contact{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:40px;
+        }
+
+        .form{
+        background:white;
+        padding:30px;
+        border-radius:15px;
+        box-shadow:0 5px 20px rgba(0,0,0,.08);
+        }
+
+        input,textarea{
+        width:100%;
+        padding:15px;
+        margin-bottom:15px;
+        border:1px solid #ddd;
+        border-radius:8px;
+        }
+
+        button{
+        background:#2e7d32;
+        color:white;
+        border:none;
+        padding:15px;
+        width:100%;
+        cursor:pointer;
+        font-size:16px;
+        border-radius:8px;
+        }
+
+        iframe{
+        width:100%;
+        height:100%;
+        min-height:450px;
+        border:none;
+        border-radius:15px;
+        }
+
+        footer{
+        background:#0d3d11;
+        color:white;
+        text-align:center;
+        padding:30px;
+        }
+
+        .whatsapp{
+        position:fixed;
+        right:25px;
+        bottom:25px;
+        width:65px;
+        height:65px;
+        background:#25D366;
+        border-radius:50%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        font-size:35px;
+        text-decoration:none;
+        color:white;
+        box-shadow:0 5px 15px rgba(0,0,0,.2);
+        z-index:999;
+        }
+
+        .fade{
+        opacity:0;
+        transform:translateY(30px);
+        transition:1s;
+        }
+
+        .fade.show{
+        opacity:1;
+        transform:translateY(0);
+        }
+
+        @media(max-width:900px){
+
+        .hero h1{
+        font-size:38px;
+        }
+
+        .about,
+        .contact{
+        grid-template-columns:1fr;
+        }
+
+        .nav-links{
+        display:none;
+        }
+
+        }
+
+        </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar">
+        <div class="logo">🌱 FERME DUMARU</div>
+
+        <ul class="nav-links">
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#products">Produits</a></li>
+            <li><a href="#gallery">Galerie</a></li>
+            <li><a href="#news">Actualités</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#message">Message</a></li>
+        </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+        <h1>Une Agriculture Moderne et Durable</h1>
+        <p>
+        Specialisé dans la production agricole, la production animale, 
+        la production végétale et dans la transformation des produits 
+        agroalimentaires au service de la qualité et de l'innovation.
+        </p>
+
+        <a href="#contact" class="btn">Nous Contacter</a>
+        </div>
+    </section>
+
+    <section id="about" class="fade">
+
+        <div class="section-title">
+        <h2>À Propos de Nous</h2>
+        </div>
+
+        <div class="about">
+
+        <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1000&q=80">
+
+        <div>
+        <h3>Ferme DUMARU</h3>
+
+        <div>
+        <p>
+        Nous sommes situés au Bénin, dans le departement du Borgou, commune 
+        de N'dali, arrondissement de Sirarou, dans le village de Maréborou. 
+        Elle est  à 4,5km du côté Ouest du village en venant de N'Dali pour Parakou. 
+        </p>
+        </div></div>
+
+        <br>
+        
+                La ferme DUMARU de Monsieur GOUNOU Sanni se distingue par sa diversité et sa résilience, 
+                intégrant plusieurs activités agricoles  agro – pastoral et écologiques complémentaires. 
+                En plus de l’élevage des volailles (poulets goliath, bicyclette/de chaires), il pratique également :    
+        </br>
+
+        <br>
+            • la culture du soja, du sorgho, du manioc et du maïs, le maraichage répondant ainsi sur site, aux 
+            besoins alimentaires des animaux de la ferme et contribuant à la sécurité alimentaire locale et à 
+            la valorisation des produits agricoles dans la région ;
+        </br>
+        <br>
+            • La production des  poulets/ Goliath et locaux
+        </br>
+        <br>
+            • La production de la provende (volaille)
+        </br>
+        <br>
+            • La production de pintade
+        </br>
+        <br>
+            • La production de canards
+        </br>
+        <br>
+            • L’élevage de volaille, répondant aux besoins croissants en protéines animales 
+        </br>
+
+        <p>
+        Nous accompagnons également les investisseurs, coopératives
+        et distributeurs à travers des solutions agricoles innovantes.
+        </p>
+        </div>
+
+        </div>
+
+    </section>
+
+    <section class="stats">
+
+        <div class="stat">
+        <h3>100+</h3>
+        <p>Hectares exploités</p>
+        </div>
+
+        <div class="stat">
+        <h3>10</h3>
+        <p>Employés</p>
+        </div>
+
+        <div class="stat">
+        <h3>800+</h3>
+        <p>Tonnes produites</p>
+        </div>
+
+        <div class="stat">
+        <h3>15+</h3>
+        <p>Années d'expérience</p>
+        </div>
+
+    </section>
+
+    <section id="services" class="fade">
+
+        <div class="section-title">
+        <h2>Nos Services</h2>
+        </div>
+
+        <div class="cards">
+
+        <div class="card">
+        <img src="img/tomate2.jpeg">
+        <div class="card-content">
+        <h3>Produit de Maraîchage</h3>
+        <p>Production intensive de légumes frais.</p>
+        </div>
+        </div>
+
+        <div class="card">
+        <img src="img/boeuf1.jpeg">
+        <div class="card-content">
+        <h3>Produit d'Élevage</h3>
+        <p>Bovins, ovins, volailles et aviculture.</p>
+        </div>
+        </div>
+
+        <div class="card">
+        <img src="img/mais1.jpeg">
+        <div class="card-content">
+        <h3>Produit Agricole</h3>
+        <p>Soja, Mais, Mil, Sorgho, Manioc.</p>
+        </div>
+        </div>
+
+        <div class="card">
+        <img src="img/provende.png">
+        <div class="card-content">
+        <h3>Production de la Provende</h3>
+        <p>Provende.</p>
+        </div>
+        </div>
+
+        <div class="card">
+        <img src="img/livraison tomate.jpeg">
+        <div class="card-content">
+        <h3>Collecte des Produits Tropicaux</h3>
+        <p>Nous collectons vos produits tropicaux.</p>
+        </div>
+        </div>
+
+        <div class="card">
+        <img src="img/conseil.png">
+        <div class="card-content">
+        <h3>Conseil Agricole</h3>
+        <p>Accompagnement des producteurs.</p>
+        </div>
+        </div>
+
+        </div>
+
+    </section>
+
+    <section id="products" class="fade">
+
+        <div class="section-title">
+        <h2>Nos Produits</h2>
+        </div>
+        <div class="cards">
+
+        <div class="card">
+        <img src="img/mais2.jpeg">
+        <div class="card-content">
+        <h3>Maïs</h3>
+        </div>
+        </div>
+
+        <!--
+        <div class="card">
+        <img src="img/soja.jpg">
+        <div class="card-content">
+        <h3>Soja</h3>
+        </div>
+        </div>
+
+        <div class="card">
+        <img src="img/manioc.jpg">
+        <div class="card-content">
+        <h3>Manioc</h3>
+        </div>
+        </div>
+
+        <div class="card">
+        <img src="img/mil.jpg">
+        <div class="card-content">
+        <h3>Mil</h3>
+        </div>
+        </div>
+
+        <div class="card">
+        <img src="img/sorgho.jpeg">
+        <div class="card-content">
+        <h3>Sorgho</h3>
+        </div>
+        </div>
+        </div>
+
+        -->
+
+        <div class="card">
+        <img src="img/boeuf3.jpeg">
+        <div class="card-content">
+        <h3>Boeufs</h3>
+        </div>
+        </div>
+
+        <div class="card">
+        <img src="img/mouton1.jpeg">
+        <div class="card-content">
+        <h3>Moutons</h3>
+        </div>
+        </div>
+
+        <div class="card">
+        <img src="img/mouton3.jpeg">
+        <div class="card-content">
+        <h3>Béliers</h3>
+        </div>
+        </div>
+
+        <div class="card">
+        <img src="img/coq1.jpeg">
+        <div class="card-content">
+        <h3>Poules</h3>
+        </div>
+        </div>
+
+        <div class="card">
+        <img src="img/poule5.jpeg">
+        <div class="card-content">
+        <h3>Coqs</h3>
+        </div>
+        </div>
+
+        <div class="card">
+        <img src="img/pintade.jpeg">
+        <div class="card-content">
+        <h3>Pintades</h3>
+        </div>
+        </div>
+
+        <div class="card">
+        <img src="img/canard.jpeg">
+        <div class="card-content">
+        <h3>Canards</h3>
+        </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="fade">
+
+        <div class="section-title">
+        <h2>Galerie</h2>
+        </div>
+
+        <div class="gallery">
+        <img src="img/boeuf2.jpeg">
+        <img src="img/boeuf4.jpeg">
+        <img src="img/boeuf5.jpeg">
+        <img src="img/mouton2.jpeg">
+        <img src="img/coq2.jpeg">
+        <img src="img/coq3.jpeg">
+        <img src="img/coq4.jpeg">
+        <img src="img/poule3.jpeg">
+        </div>
+
+    </section>
+
+    <section id="news" class="news fade">
+
+        <div class="section-title">
+            <h2>Actualités</h2>
+        </div>
+
+        <div class="cards">
+
+        <div class="card">
+            <div class="card-content">
+            <h3>Nouvelle récolte d'Igname</h3>
+            <p>Les differentes variétés d'ignames de la saison Juillet 2026 
+                nouvellement sorti sont disponibles dans notre ferme.</p>
+        </div>
+        </div>
+
+        <div class="card">
+        <div class="card-content">
+        <h3>Nouvelle Race des ovins</h3>
+        <p>Nous avons acquis de nouvelle race des ovins. Disponible dans 
+            notre ferme, contacter nous pour vous en procurer de cette race extremement rare</p>
+        </div>
+        </div>
+
+        <div class="card">
+        <div class="card-content">
+        <h3>Promotion de la Provende</h3>
+        <p>Nous sommes actuellement en promotion de nos produits de la provenderie dans tous nos 
+            coins de vente</p>
+        </div>
+        </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="contact" class="news fade">
+
+        <div class="section-title">
+        <h2>Nous Contacter</h2>
+        </div>
+
+        <div class="contact">
+
+        <div class="card">
+        <div class="card-content">
+        <h3>AGENT COMMERCIALE</h3>
+        <p>+229 01 98 32 68 26</p>
+        </div>
+        </div>
+
+        <div class="card">
+        <div class="card-content">
+        <h3>CHARGE DES PRODUITS MARAICHAGE</h3>
+        <p>+229 01 67 58 27 58</p>
+        </div>
+        </div>
+
+        <div class="card">
+        <div class="card-content">
+        <h3>CHARGE DE LA PRODUCTION ANIMALE</h3>
+        <p>+229 01 99 35 26 08</p>
+        </div>
+        </div>
+
+        <div class="card">
+        <div class="card-content">
+        <h3>CHARGE DE LA PRODUCTION VEGETALE</h3>
+        <p>+229 01 95 71 59 76</p>
+        </div>
+        </div>
+
+        </div>
+
+    </section>
+
+    <section id="message" class="fade">
+
+        <div class="section-title">
+            <h2>Laisser nous un Message</h2>
+        </div>
+
+        <div class="message">
+
+        <form id="contactForm">
+
+            <input type="text" placeholder="Nom complet" required>
+            <input type="email" placeholder="Adresse email" required>
+            <textarea rows="6" placeholder="Votre message"></textarea>
+            <button type="submit">Envoyer le message</button>
+
+        </form>
+
+        <iframe src="https://maps.google.com/maps?q=N'dali&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <h3>FERME DUMARU</h3>
+
+        <p>
+        Production agricole • Élevage • Transformation agroalimentaire
+        </p>
+
+        <br>
+
+        <p>© 2026 Tous droits réservés.</p>
+
+    </footer>
+
+    <a href="https://wa.me/2290147271721" class="whatsapp">💬</a>
+
+    <script>
+
+        document.getElementById("contactForm")
+        .addEventListener("submit",function(e){
+
+        e.preventDefault();
+
+        alert("Votre message a été envoyé avec succès.");
+
+        this.reset();
+
+        });
+
+        const observer=new IntersectionObserver(entries=>{
+
+        entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+        entry.target.classList.add("show");
+        }
+
+        });
+
+        });
+
+        document.querySelectorAll(".fade").forEach(el=>{
+        observer.observe(el);
+        });
+
+    </script>
+
+</body>
+</html>
+```
